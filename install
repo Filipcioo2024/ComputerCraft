@@ -1,0 +1,31 @@
+if(not term.isColor or not term.isColor())then
+	print("VoidOS Can only run on advanced computers and turtles!")
+	error()
+end
+
+if(not http)then
+	print("VoidOS requires HTTP Api to run!")
+	error()
+end
+
+function downloadFile(path, url)
+	print("Downloading: " .. path)
+	data = http.get(url).readAll()
+	file = assert(io.open(path, "w"))
+	file:write(data)
+	file:close()
+end
+
+if(fs.exists("/void"))then
+	fs.delete("/void")
+end
+
+if(fs.exists("startup"))then
+	fs.delete("startup")
+end
+
+fs.makeDir("/void")
+
+downloadFile("/void/installer", "https://github.com/Vilsol/VoidOS/raw/master/void/installer")
+
+shell.run("/void/installer")
