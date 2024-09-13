@@ -1,4 +1,4 @@
 VoidOS
 ======
 
-This is an operating system for the Minecraft mod ComputerCraft
+Ostatnia wersja oprogramowania która wygasła 3 lata temu 
